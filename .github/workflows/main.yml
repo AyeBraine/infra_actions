@@ -69,9 +69,9 @@ jobs:
       with:
         host: ${{ secrets.CLOUD_IP }}
         username: ${{ secrets.CLOUD_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
+        key: ${{ secrets.SSH_KEY}}
         passphrase: ${{ secrets.CLOUD_CODE }}
         script: |
-          sudo docker pull <имя-пользователя>/<имя-репозитория>
+          sudo docker pull ayebraine/infra-actions:latest
           sudo docker stop $(sudo docker ps -a -q)
           sudo docker run --rm -d -p 5000:5000 ayebraine/infra-actions:latest
